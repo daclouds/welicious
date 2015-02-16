@@ -23,6 +23,7 @@ public class Member {
         for (int count = 1; count < groupList.size(); count++) {
             builder.append(", Group Topic 2 : " + groupList.get(count).getTopic());
         }
+
         return "Name : " + name + ", age : " + age + ", Group List : " + builder.toString();
     }
 }

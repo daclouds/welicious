@@ -12,41 +12,35 @@ public class Group {
 
     public int join(Member m) {
         if (maxMemberCount <= members.size()) {
-            return joinFailStatus;
+
+            // Join Fail Response
+            return 0;
         } else {
             members.add(m);
-            return joinSuccess;
+
+            // Join Success Response
+            return 1;
         }
     }
 
     public int exit(Member m) {
-        if (members.isExist(m)) {
-            members.remove(m);
-            return exitSuccessStatus;
-        } else {
-            return exitFailStatus;
+        for(int count =0 ; count < members.size(); count++) {
+            if(members.get(count).equals(m)) {
+
+                members.remove(m);
+
+                // Exit Success Response
+                return 1;
+            }
         }
+
+        // Exit Fail Response
+        return 0;
     }
 
     @Override
     public String toString() {
         return "- Group Topic - " + topic;
-    }
-
-    public Dinning getPlan() {
-        return plan;
-    }
-
-    public void setPlan(Dinning plan) {
-        this.plan = plan;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
     }
 
     public String getTopic() {
@@ -55,21 +49,5 @@ public class Group {
 
     public void setTopic(String topic) {
         this.topic = topic;
-    }
-
-    public int getMaxMemberCount() {
-        return maxMemberCount;
-    }
-
-    public void setMaxMemberCount(int maxMemberCount) {
-        this.maxMemberCount = maxMemberCount;
-    }
-
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
     }
 }
