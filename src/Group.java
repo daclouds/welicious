@@ -30,9 +30,9 @@ public class Group {
 	
 	public void removeMemver(Member m) {
 		
-		for (Member t in members) {
+		for (Member t : members) {
 			if (t == m) {
-				members.
+				members.remove(m);
 			}
 		}
 	}
