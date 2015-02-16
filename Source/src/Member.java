@@ -4,13 +4,13 @@ import java.util.List;
  * Created by 1002461 on 15. 2. 16..
  */
 public class Member {
-    int age;
-    String id;
-    String name;
-    List<String> interestList;
-    List<Group> groupList;
+    private int age;
+    private String id;
+    private String name;
+    private List<String> interestList;
+    private List<Group> groupList;
 
-    List<Group> getJoinedGroup() {
+    public List<Group> getJoinedGroup() {
         return groupList;
     }
 
@@ -18,12 +18,11 @@ public class Member {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("Group Topic 1 : " + groupList.get(0).topic);
+        builder.append("Group Topic 1 : " + groupList.get(0).getTopic());
 
         for (int count = 1; count < groupList.size(); count++) {
-            builder.append(", Group Topic 2 : " + groupList.get(count).topic);
+            builder.append(", Group Topic 2 : " + groupList.get(count).getTopic());
         }
-
         return "Name : " + name + ", age : " + age + ", Group List : " + builder.toString();
     }
 }
